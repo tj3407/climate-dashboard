@@ -1,0 +1,45 @@
+h1 {
+    margin: 0px;
+}
+
+h3 {
+    margin: 0px;
+    font-size: 35px;
+    line-height: 1.3328;
+}
+
+section {
+    padding: 40px;
+
+    p {
+        line-height: 2;
+        font-size: 18px;
+    }
+}
+
+.section-1 {
+    background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url("../../assets/images/pexels-pixabay-53389.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll;
+    height: 100vh;
+
+    h1 {
+        font-size: 44px;
+    }
+}
+
+.section-2 {
+    background-color: lightgray;
+}
+
+.section-5 {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../../assets/images/gulf-stream-600.gif") no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll;
+    height: 500px;
+}
+
+footer {
+    background: #000;
+    height: 300px;
+}
