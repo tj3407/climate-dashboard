@@ -1,9 +1,32 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import "./Home.scss";
-import { Typography } from '@material-ui/core';
+import { Button, Typography, Dialog, DialogTitle, DialogContent } from '@material-ui/core';
+import DataPage from '../../dialog/DataPage';
 
 class Home extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDataModalOpen: false
+        }
+    }
+
+    handleDataPageClick = () => {
+        this.setState({ isDataModalOpen: true })
+    }
+
+    renderDataDialog = () => {
+        return (
+            <Dialog open={this.state.isDataModalOpen} onClose={() => this.setState({ isDataModalOpen: false })} maxWidth="md">
+                <DialogTitle onClose={() => this.setState({ isDataModalOpen: false })}>Sea Level Rise</DialogTitle>
+                <DialogContent>
+                    <DataPage />
+                </DialogContent>
+            </Dialog>
+        )
+    }
+
     render() {
         return (
             <div>
@@ -20,9 +43,10 @@ class Home extends PureComponent {
                             </div>
                         </section>
                         <section className="section-2">
-                            <div className="d-flex mt-4">
+                            <div className="d-flex mt-4 justify-between">
                                 <div className="flex-1">
-                                    <h3>Prior to the 20th century, sea level has risen at an average rate of 0.06 inches per year. Since 1993, however, average sea level has risen at a rate of 0.11 - 0.14 inches per year - roughly a 100% increase</h3>
+                                    <h3 className="mb-4">Prior to the 20th century, sea level has risen at an average rate of 0.06 inches per year. Since 1993, however, average sea level has risen at a rate of 0.11 - 0.14 inches per year - roughly a 100% increase</h3>
+                                    <Button variant="outlined" size="large" onClick={this.handleDataPageClick}>Learn More</Button>
                                 </div>
                                 <div className="flex-1 pl-4 ml-4">
                                     <img src="./assets/images/Global_Mean_Sea_Level.png" width="580" height="250" alt="sea level chart" />
@@ -33,7 +57,8 @@ class Home extends PureComponent {
                             <div className="d-flex mt-4">
                                 <div className="flex-1">
                                     <h3>As our ocean warms, sea level rises.</h3>
-                                    <p>When heat is absorbed by our oceans, the water expands and the volume is affected immensely. Measurements from Argo profiling floats show that warming of upper ocean surface caused sea level to rise due to thermal expansion (NASA.gov)</p>
+                                    <p className="mb-4">When heat is absorbed by our oceans, the water expands and the volume is affected immensely. Measurements from Argo profiling floats show that warming of upper ocean surface caused sea level to rise due to thermal expansion (NASA.gov)</p>
+                                    <Button variant="outlined" size="large">Learn More</Button>
                                 </div>
                                 <div className="flex-1 pl-4 ml-4">
                                     <img src="./assets/images/pexels-stijn-dijkstra-2499791.jpg" width="580" height="250" alt="sea level chart" />
@@ -47,7 +72,8 @@ class Home extends PureComponent {
                                 </div>
                                 <div className="flex-1 pl-4 ml-4">
                                     <h3>Glacial melt contribute a third of sea level rise</h3>
-                                    <p>Mountain glaciers contribute roughly a third of measured sea-level rise. Since 1961, glaciers have lost roughly 9,000 billion tons of ice, raising water levels by 27 millimeters. Research has highlighted that many of the world’s glaciers will disappear within the next century! </p>
+                                    <p className="mb-4">Mountain glaciers contribute roughly a third of measured sea-level rise. Since 1961, glaciers have lost roughly 9,000 billion tons of ice, raising water levels by 27 millimeters. Research has highlighted that many of the world’s glaciers will disappear within the next century! </p>
+                                    <Button variant="outlined" size="large">Learn More</Button>
                                 </div>
                             </div>
                         </section>
@@ -63,7 +89,8 @@ class Home extends PureComponent {
                                 </div>
                                 <div className="flex-1 pl-4 ml-4">
                                     <h3>Sea Level Rise due to weakened Gulf Stream</h3>
-                                    <p>A weaker Gulf Stream can result in sea level rise along the east coast of the United States. When the Gulf Stream is strong, water is swept away from the coast more rapidly as it makes its trek up north. But when the Gulf Stream is weak, the water doesn’t get swept away as much resulting in sea level rise along the coast. </p>
+                                    <p className="mb-4">A weaker Gulf Stream can result in sea level rise along the east coast of the United States. When the Gulf Stream is strong, water is swept away from the coast more rapidly as it makes its trek up north. But when the Gulf Stream is weak, the water doesn’t get swept away as much resulting in sea level rise along the coast. </p>
+                                    <Button variant="outlined" size="large">Learn More</Button>
                                 </div>
                             </div>
                         </section>
@@ -80,6 +107,7 @@ class Home extends PureComponent {
                         <Typography variant="caption" display="block">6. Rubin, Harvey. February 13, 2018. Sea-level rise is a regional threat. It will need a regional game plan to fight it. Miami Herald. https://www.miamiherald.com/opinion/op-ed/article199983139.html</Typography>
                     </section>
                 </footer>
+                {this.renderDataDialog()}
             </div>
         );
     }
