@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/climate-dashboard/static/css/main.57248ce5.chunk.css",
+    "main.js": "/climate-dashboard/static/js/main.0879a3e9.chunk.js",
+    "main.js.map": "/climate-dashboard/static/js/main.0879a3e9.chunk.js.map",
+    "runtime-main.js": "/climate-dashboard/static/js/runtime-main.eda9d8f5.js",
+    "runtime-main.js.map": "/climate-dashboard/static/js/runtime-main.eda9d8f5.js.map",
+    "static/js/2.54c65806.chunk.js": "/climate-dashboard/static/js/2.54c65806.chunk.js",
+    "static/js/2.54c65806.chunk.js.map": "/climate-dashboard/static/js/2.54c65806.chunk.js.map",
+    "static/js/3.167ea684.chunk.js": "/climate-dashboard/static/js/3.167ea684.chunk.js",
+    "static/js/3.167ea684.chunk.js.map": "/climate-dashboard/static/js/3.167ea684.chunk.js.map",
+    "index.html": "/climate-dashboard/index.html",
+    "static/css/main.57248ce5.chunk.css.map": "/climate-dashboard/static/css/main.57248ce5.chunk.css.map",
+    "static/js/2.54c65806.chunk.js.LICENSE.txt": "/climate-dashboard/static/js/2.54c65806.chunk.js.LICENSE.txt",
+    "static/media/Home.scss": "/climate-dashboard/static/media/pexels-pixabay-53389.bb642204.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eda9d8f5.js",
+    "static/js/2.54c65806.chunk.js",
+    "static/css/main.57248ce5.chunk.css",
+    "static/js/main.0879a3e9.chunk.js"
+  ]
+}
