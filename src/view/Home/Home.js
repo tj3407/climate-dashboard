@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import "./Home.scss";
 import { Button, Typography, Dialog, DialogTitle, DialogContent } from '@material-ui/core';
 import DataPage from '../../dialog/DataPage';
+import OceanWarming from '../../dialog/OceanWarming/OceanWarming';
+import { Link } from 'react-router-dom';
 
 class Home extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            isDataModalOpen: false
+            isDataModalOpen: false,
+            isOceanWarmingModalOpen: false
         }
     }
 
@@ -16,12 +19,35 @@ class Home extends PureComponent {
         this.setState({ isDataModalOpen: true })
     }
 
+    handleOceanWarmingClick = () => {
+        this.setState({ isOceanWarmingModalOpen: true })
+    }
+
     renderDataDialog = () => {
         return (
-            <Dialog open={this.state.isDataModalOpen} onClose={() => this.setState({ isDataModalOpen: false })} maxWidth="md">
-                <DialogTitle onClose={() => this.setState({ isDataModalOpen: false })}>Sea Level Rise</DialogTitle>
+            <Dialog 
+                open={this.state.isDataModalOpen} 
+                onClose={() => this.setState({ isDataModalOpen: false })} 
+                maxWidth="md"
+            >
+                <DialogTitle onClose={() => this.setState({ isDataModalOpen: false })}>NOAA Sea Level Rise Viewer </DialogTitle>
                 <DialogContent>
                     <DataPage />
+                </DialogContent>
+            </Dialog>
+        )
+    }
+
+    renderOceanWarmingDialog = () => {
+        return (
+            <Dialog 
+                open={this.state.isOceanWarmingModalOpen} 
+                onClose={() => this.setState({ isOceanWarmingModalOpen: false })} 
+                maxWidth="md"
+            >
+                <DialogTitle onClose={() => this.setState({ isOceanWarmingModalOpen: false })}>Ocean Warming</DialogTitle>
+                <DialogContent>
+                    <OceanWarming />
                 </DialogContent>
             </Dialog>
         )
@@ -58,7 +84,7 @@ class Home extends PureComponent {
                                 <div className="flex-1">
                                     <h3>As our ocean warms, sea level rises.</h3>
                                     <p className="mb-4">When heat is absorbed by our oceans, the water expands and the volume is affected immensely. Measurements from Argo profiling floats show that warming of upper ocean surface caused sea level to rise due to thermal expansion (NASA.gov)</p>
-                                    <Button variant="outlined" size="large">Learn More</Button>
+                                    <Button variant="outlined" size="large" onClick={this.handleOceanWarmingClick}>Learn More</Button>
                                 </div>
                                 <div className="flex-1 pl-4 ml-4">
                                     <img src="./assets/images/pexels-stijn-dijkstra-2499791.jpg" width="580" height="250" alt="sea level chart" />
@@ -108,6 +134,7 @@ class Home extends PureComponent {
                     </section>
                 </footer>
                 {this.renderDataDialog()}
+                {this.renderOceanWarmingDialog()}
             </div>
         );
     }

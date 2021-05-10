@@ -89,3 +89,7 @@
 .ml-4 {
   margin-left: 40px;
 }
+
+.paragraph.bold{
+  font-weight: bolder;
+}
