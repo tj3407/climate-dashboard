@@ -93,3 +93,7 @@
 .paragraph.bold{
   font-weight: bolder;
 }
+
+.inline {
+  display: inline;
+}

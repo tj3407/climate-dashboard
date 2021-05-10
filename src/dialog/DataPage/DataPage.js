@@ -16,12 +16,12 @@ function DataPage(props) {
                 />
             </div>
             <div className="mt-2">
-                <Link href="https://coast.noaa.gov/slr/#/layer/slr">Go to NOAA Dashboard</Link>
+                <p className="inline paragraph bold">Enter an address above or </p><Link href="https://coast.noaa.gov/slr/#/layer/slr" target="_blank">Go to NOAA Dashboard</Link>
             </div>
             <Typography paragraph className="mt-2">
                 Sea level continues to rise at a rate of about <span className="paragraph bold">1/8</span> of an inch per year.
                 With continued ocean and atmospheric warming, sea levels will most likely rise for many centuries at rates higher than
-                current levels. 
+                current levels.
             </Typography>
         </div>
     );

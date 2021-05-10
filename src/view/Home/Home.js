@@ -5,22 +5,34 @@ import { Button, Typography, Dialog, DialogTitle, DialogContent } from '@materia
 import DataPage from '../../dialog/DataPage';
 import OceanWarming from '../../dialog/OceanWarming/OceanWarming';
 import { Link } from 'react-router-dom';
+import GlacialMelt from '../../dialog/GlacialMelt/GlacialMelt';
+import GulfStream from '../../dialog/GulfStream/GulfStream';
 
 class Home extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             isDataModalOpen: false,
-            isOceanWarmingModalOpen: false
+            isOceanWarmingModalOpen: false,
+            isGlacialModalOpen: false,
+            isGulfStreamModalOpen: false
         }
     }
 
     handleDataPageClick = () => {
-        this.setState({ isDataModalOpen: true })
+        this.setState({ isDataModalOpen: true });
     }
 
     handleOceanWarmingClick = () => {
-        this.setState({ isOceanWarmingModalOpen: true })
+        this.setState({ isOceanWarmingModalOpen: true });
+    }
+
+    handleGlacialClick = () => {
+        this.setState({ isGlacialModalOpen: true });
+    }
+
+    handleGulfStreamClick = () => {
+        this.setState({ isGulfStreamModalOpen: true });
     }
 
     renderDataDialog = () => {
@@ -48,6 +60,36 @@ class Home extends PureComponent {
                 <DialogTitle onClose={() => this.setState({ isOceanWarmingModalOpen: false })}>Ocean Warming</DialogTitle>
                 <DialogContent>
                     <OceanWarming />
+                </DialogContent>
+            </Dialog>
+        )
+    }
+
+    renderGlacialDialog = () => {
+        return (
+            <Dialog 
+                open={this.state.isGlacialModalOpen} 
+                onClose={() => this.setState({ isGlacialModalOpen: false })} 
+                maxWidth="md"
+            >
+                <DialogTitle onClose={() => this.setState({ isGlacialModalOpen: false })}>Glacial Melting</DialogTitle>
+                <DialogContent>
+                    <GlacialMelt />
+                </DialogContent>
+            </Dialog>
+        )
+    }
+
+    renderGulfStreamDialog = () => {
+        return (
+            <Dialog 
+                open={this.state.isGulfStreamModalOpen} 
+                onClose={() => this.setState({ isGulfStreamModalOpen: false })} 
+                maxWidth="md"
+            >
+                <DialogTitle onClose={() => this.setState({ isGulfStreamModalOpen: false })}>Gulf Stream</DialogTitle>
+                <DialogContent>
+                    <GulfStream />
                 </DialogContent>
             </Dialog>
         )
@@ -99,7 +141,7 @@ class Home extends PureComponent {
                                 <div className="flex-1 pl-4 ml-4">
                                     <h3>Glacial melt contribute a third of sea level rise</h3>
                                     <p className="mb-4">Mountain glaciers contribute roughly a third of measured sea-level rise. Since 1961, glaciers have lost roughly 9,000 billion tons of ice, raising water levels by 27 millimeters. Research has highlighted that many of the world’s glaciers will disappear within the next century! </p>
-                                    <Button variant="outlined" size="large">Learn More</Button>
+                                    <Button variant="outlined" size="large" onClick={this.handleGlacialClick}>Learn More</Button>
                                 </div>
                             </div>
                         </section>
@@ -116,7 +158,7 @@ class Home extends PureComponent {
                                 <div className="flex-1 pl-4 ml-4">
                                     <h3>Sea Level Rise due to weakened Gulf Stream</h3>
                                     <p className="mb-4">A weaker Gulf Stream can result in sea level rise along the east coast of the United States. When the Gulf Stream is strong, water is swept away from the coast more rapidly as it makes its trek up north. But when the Gulf Stream is weak, the water doesn’t get swept away as much resulting in sea level rise along the coast. </p>
-                                    <Button variant="outlined" size="large">Learn More</Button>
+                                    <Button variant="outlined" size="large" onClick={this.handleGulfStreamClick}>Learn More</Button>
                                 </div>
                             </div>
                         </section>
@@ -131,10 +173,13 @@ class Home extends PureComponent {
                         <Typography variant="caption" display="block">4. Fleshler, David. August 9, 2019. The Gulf Stream is slowing down. That could mean rising seas and a hotter Florida. Phys Org. https://phys.org/news/2019-08-gulf-stream-seas-hotter-florida.html</Typography>
                         <Typography variant="caption" display="block">5. Imster, Eleanor. March 3, 2021. Gulf Stream at its weakest in over 1,000 years. EarthSky. https://earthsky.org/earth/gulf-stream-atlantic-weakest-in-over-1000-years</Typography>
                         <Typography variant="caption" display="block">6. Rubin, Harvey. February 13, 2018. Sea-level rise is a regional threat. It will need a regional game plan to fight it. Miami Herald. https://www.miamiherald.com/opinion/op-ed/article199983139.html</Typography>
+                        <Typography variant="caption" display="block">7. Gifs obtained from https://gfycat.com</Typography>
                     </section>
                 </footer>
                 {this.renderDataDialog()}
                 {this.renderOceanWarmingDialog()}
+                {this.renderGlacialDialog()}
+                {this.renderGulfStreamDialog()}
             </div>
         );
     }
